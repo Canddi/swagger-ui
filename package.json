@@ -2,7 +2,7 @@
   "name": "swagger-ui",
   "version": "3.9.0",
   "main": "dist/swagger-ui.js",
-  "repository": "git@github.com:swagger-api/swagger-ui.git",
+  "repository": "https://github.com/Deep-Web-Technologies/swagger-ui.git",
   "contributors": [
     "(in alphabetical order)",
     "Anna Bodnia <anna.bodnia@gmail.com>",
