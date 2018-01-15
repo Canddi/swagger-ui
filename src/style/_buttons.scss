@@ -9,10 +9,10 @@
 
     border: 2px solid $btn-border-color;
     border-radius: 4px;
-    background: transparent;
+    background: $btn-background-color;
     box-shadow: 0 1px 2px rgba($btn-box-shadow-color,.1);
 
-    @include text_headline();
+    @include text_headline($btn-font-color);
 
     &.btn-sm
     {
@@ -30,6 +30,8 @@
     &:hover
     {
         box-shadow: 0 0 5px rgba($btn-box-shadow-color,.3);
+        background: $btn-background-color-hover;
+        @include text_headline($btn-font-color-hover);
     }
 
     &.cancel
@@ -37,6 +39,11 @@
         border-color: $btn-cancel-border-color;
         background-color: $btn-cancel-background-color;
         @include text_headline($btn-cancel-font-color);
+        &:hover
+        {
+            background: $btn-cancel-background-color-hover;
+            @include text_headline($btn-cancel-font-color-hover);
+        }
     }
 
     &.authorize
@@ -60,38 +67,48 @@
         {
             fill: $btn-authorize-svg-fill-color;
         }
+
+        &:hover
+        {
+            color: $btn-authorize-font-color-hover;
+            background-color: $btn-authorize-background-color-hover;
+            svg
+            {
+                fill: $btn-authorize-svg-fill-color-hover;
+            }
+        }
     }
 
-    &.execute
-    {
-        animation: swagger-ui-pulse 2s infinite;
-        will-change: transform;
-        background-color: $btn-execute-background-color;
-        color: $btn-execute-font-color;
-        border-color: $btn-execute-border-color;
-    }
+    // &.execute
+    // {
+    //     animation: swagger-ui-pulse 2s infinite;
+    //     will-change: transform;
+    //     background-color: $btn-execute-background-color;
+    //     color: $btn-execute-font-color;
+    //     border-color: $btn-execute-border-color;
+    // }
 }
 
 
-@keyframes swagger-ui-pulse
-{
-    0%
-    {
-        color: $btn-execute-font-color;
-        background: $btn-execute-background-color-alt;
-        box-shadow: 0 0 0 0 rgba($btn-execute-background-color-alt, .8);
-    }
-    70%
-    {
-        box-shadow: 0 0 0 5px rgba($btn-execute-background-color-alt, 0);
-    }
-    100%
-    {
-        color: $btn-execute-font-color;
-        background: $btn-execute-background-color-alt;
-        box-shadow: 0 0 0 0 rgba($btn-execute-background-color-alt, 0);
-    }
-}
+// @keyframes swagger-ui-pulse
+// {
+//     0%
+//     {
+//         color: $btn-execute-font-color;
+//         background: $btn-execute-background-color-alt;
+//         box-shadow: 0 0 0 0 rgba($btn-execute-background-color-alt, .8);
+//     }
+//     70%
+//     {
+//         box-shadow: 0 0 0 5px rgba($btn-execute-background-color-alt, 0);
+//     }
+//     100%
+//     {
+//         color: $btn-execute-font-color;
+//         background: $btn-execute-background-color-alt;
+//         box-shadow: 0 0 0 0 rgba($btn-execute-background-color-alt, 0);
+//     }
+// }
 
 .btn-group
 {
