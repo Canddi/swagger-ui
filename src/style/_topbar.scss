@@ -3,6 +3,10 @@
     padding: 8px 0;
 
     background-color: $topbar-background-color;
+
+    border-style: none none solid none;
+    border-width: 5px;
+    border-color: $topbar-border-color;
     .topbar-wrapper
     {
         display: flex;
@@ -42,7 +46,7 @@
             margin: 0;
 
             border: 2px solid $topbar-download-url-wrapper-element-border-color;
-            border-radius: 4px 0 0 4px;
+            border-radius: 10px 0 0 4px;
             outline: none;
         }
 
@@ -85,11 +89,17 @@
 
             padding: 4px 30px;
 
-            border: none;
+            border: 2px solid $topbar-download-url-wrapper-element-border-color;
+            border-left: none;
             border-radius: 0 4px 4px 0;
             background: $topbar-download-url-button-background-color;
 
             @include text_headline($topbar-download-url-button-font-color);
+
+            &:hover{
+            background: $topbar-download-url-button-background-color-hover;
+            @include text_headline($topbar-download-url-button-font-color-hover);
+            }
         }
     }
 }

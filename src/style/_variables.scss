@@ -16,7 +16,7 @@ $gray-900: lighten($gray-base, 18.75%) !default; // #333
 $gray-custom-1: #41444e !default;
 $gray-custom-2: #3b4151 !default;
 
-$color-primary: #89bf04 !default;
+$color-primary: #005d91 !default;
 $color-secondary: #9012fe !default;
 $color-info: #4990e2 !default;
 $color-warning: #ff6060 !default;
@@ -41,23 +41,32 @@ $auth-container-border-color: $gray-50 !default;
 
 // Buttons
 
-$btn-background-color: transparent !default;
-$btn-border-color: $gray-400 !default;
-$btn-font-color: inherit !default;
+$btn-background-color: $color-primary !default;
+$btn-background-color-hover: $white !default;
+$btn-border-color: $color-primary !default;
+$btn-font-color: $white !default;
+$btn-font-color-hover: $color-primary !default;
 $btn-box-shadow-color: $gray-base !default;
 
-$btn-authorize-background-color: transparent !default;
-$btn-authorize-border-color: $_color-post !default;
-$btn-authorize-font-color: $_color-post !default;
-$btn-authorize-svg-fill-color: $_color-post !default;
+$btn-authorize-background-color: $color-primary !default;
+$btn-authorize-background-color-hover: $white !default;
+$btn-authorize-border-color: $color-primary !default;
+$btn-authorize-font-color: $white !default;
+$btn-authorize-font-color-hover: $color-primary !default;
+$btn-authorize-svg-fill-color: $white !default;
+$btn-authorize-svg-fill-color-hover: $color-primary !default;
 
-$btn-cancel-background-color: transparent !default;
+$btn-cancel-background-color: $color-warning !default;
+$btn-cancel-background-color-hover: $white !default;
 $btn-cancel-border-color: $color-warning !default;
-$btn-cancel-font-color: $color-warning !default;
+$btn-cancel-font-color: $white !default;
+$btn-cancel-font-color-hover: $color-warning !default;
 
-$btn-execute-background-color: transparent !default;
-$btn-execute-border-color: $color-info !default;
+$btn-execute-background-color: $color-primary !default;
+$btn-execute-background-color-hover: $white !default;
+$btn-execute-border-color: $color-primary !default;
 $btn-execute-font-color: $white !default;
+$btn-execute-font-color-hover: $color-primary !default;
 $btn-execute-background-color-alt: $color-info !default;
 
 $expand-methods-svg-fill-color: $gray-500 !default;
@@ -202,14 +211,17 @@ $table-parameter-deprecated-font-color: $color-danger !default;
 
 // Topbar
 
-$topbar-background-color: $color-primary !default;
+$topbar-background-color: $white !default;
+$topbar-border-color:     $color-primary !default;
 
 $topbar-link-font-color: $white !default;
 
-$topbar-download-url-wrapper-element-border-color: #547f00 !default;
+$topbar-download-url-wrapper-element-border-color: $color-primary !default;
 
-$topbar-download-url-button-background-color: #547f00 !default;
+$topbar-download-url-button-background-color: $color-primary !default;
+$topbar-download-url-button-background-color-hover: $white !default;
 $topbar-download-url-button-font-color: $white !default;
+$topbar-download-url-button-font-color-hover: $color-primary !default;
 
 // Type
 
