@@ -52,16 +52,6 @@ export default class Auth0 extends React.Component {
   }
 
   authenticateUser =() => {
-    window.canddi_developer  = {
-      config : {
-        apiAuth:              'api.auth.canddi.com',
-        clientID:             'sqmANlWNUnEXgINzWBtkFxn9DmqY5PON',
-        domain:               'canddi.eu.auth0.com',
-        loginURL:             'http://localhost:3200'
-      },
-      user : {}
-    };
-
     window.decodeJWT = function(token){
         if (!token) return null;
         var payload = token.split('.')[1];
