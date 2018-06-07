@@ -35,6 +35,22 @@ export default class Auth0 extends React.Component {
         const schema = OrderedMap(schemaObj);
         let sendState = {[name]:{name,schema,idToken}};
         authActions.authorize(sendState)
+
+        function fnChangeSwaggerHostUrl (scheme,host,path) {
+            var newspec = ui.spec().toJSON().resolved
+            newspec.scheme = [scheme] || newspec.scheme 
+            newspec.host = host || newspec.host
+            newspec.basePath = path || newspec.basePath
+            ui.getStore().dispatch({type:'set_scheme',payload: {scheme: newspec.scheme[0]}})
+            ui.getStore().dispatch({type:'spec_update_resolved',payload:newspec})
+        }
+
+        let profile = decodeJWT(idToken);
+        let objAccounts = profile["user_metadata"].Accounts,
+            strSlug     = objAccounts[0].Slug,
+            strUrl      = strSlug + ".canddi.com";
+
+        fnChangeSwaggerHostUrl("https", strUrl);
     }
   }
 
