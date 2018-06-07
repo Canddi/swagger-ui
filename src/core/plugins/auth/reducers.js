@@ -18,6 +18,10 @@ export default {
     let securities = fromJS(payload)
     let map = state.get("authorized") || Map()
 
+    if(payload["canddi_key"]) {
+      map = map.set("canddi_key", payload["canddi_key"].idToken);
+      return state.set("authorized", map);
+    }
     // refactor withMutations
     securities.entrySeq().forEach( ([ key, security ]) => {
       let type = security.getIn(["schema", "type"])
