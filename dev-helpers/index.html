@@ -82,6 +82,49 @@ window.canddi_developer  = {
   user : {}
 };
 
+var objConfig   = window.canddi_developer.config,
+    auth0       = new window.auth0.WebAuth({
+        domain:         objConfig.domain,
+        clientID:       objConfig.clientID,
+        redirectUri:    objConfig.loginURL,
+        responseType:   'token id_token'
+    }),
+    idToken     = store.get("id_token");
+
+
+window.decodeJWT = function(token){
+    if (!token) return null;
+    var payload = token.split('.')[1];
+    if(!payload) return null;
+    //If the payload is encoded in Base64URL, transform into Base64
+    payload = payload.replace(/-/g, "+");
+    payload = payload.replace(/_/g, "/");
+    try {
+      return JSON.parse(atob(payload));
+    } catch (e) {
+      return null;
+    }
+};
+
+// If we followed a callback from auth0's login page, there will be an id_token in the hash
+if(window.location.hash) {
+    var matches = window.location.hash.match(new RegExp('id_token=([^&]*)'));
+    if (matches) {
+        // Save token locally
+        store.set("id_token", matches[1]);
+        window.profile = decodeJWT(matches[1]);
+        window.isAuthorized = true;
+    }
+}
+
+if (idToken) {
+    window.profile = decodeJWT(idToken);
+    // If the profile expired from the store then show the auth0 login
+    if(profile && Math.floor(Date.now() / 1000) < profile.exp) {
+        window.isAuthorized = true;
+    }
+}
+
 window.onload = function() {
   window["SwaggerUIBundle"] = window["swagger-ui-bundle"]
   window["SwaggerUIStandalonePreset"] = window["swagger-ui-standalone-preset"]
