@@ -41,7 +41,6 @@
   },
   "dependencies": {
     "@braintree/sanitize-url": "^2.0.2",
-    "auth0-lock": "^11.0.1",
     "base64-js": "^1.2.0",
     "brace": "0.7.0",
     "classnames": "^2.2.5",
