@@ -47,7 +47,6 @@ export default class BaseLayout extends React.Component {
     let Col = getComponent("Col")
     let Servers = getComponent("Servers")
     let Errors = getComponent("errors", true)
-    let Auth0 = getComponent("auth0",true)
 
     let isLoading = specSelectors.loadingStatus() === "loading"
     let isFailed = specSelectors.loadingStatus() === "failed"
@@ -99,7 +98,7 @@ export default class BaseLayout extends React.Component {
                   ) : null }
 
                   { securityDefinitions ? (
-                    <Auth0 />
+                    <AuthorizeBtn />
                   ) : null }
                 </Col>
               </div>

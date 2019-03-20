@@ -66,6 +66,11 @@ export default class ApiKeyAuth extends React.Component {
         <Row>
           <p>In: <code>{ schema.get("in") }</code></p>
         </Row>
+        {
+          name === 'canddi_key' && <Row>
+            <p><a href="./apiaccess.png" target="_blank">How do i find this?</a></p>
+          </Row>
+        } 
         <Row>
           <label>Value:</label>
           {

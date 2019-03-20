@@ -62,7 +62,6 @@ import Property from "core/components/property"
 import TryItOutButton from "core/components/try-it-out-button"
 import VersionStamp from "core/components/version-stamp"
 import DeepLink from "core/components/deep-link"
-import Auth0 from "core/components/auth/auth0"
 
 import Markdown from "core/components/providers/markdown"
 
@@ -124,8 +123,7 @@ export default function() {
       OperationExtRow,
       ParameterExt,
       OperationContainer,
-      DeepLink,
-      auth0: Auth0
+      DeepLink
     }
   }
 
