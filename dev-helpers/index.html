@@ -125,6 +125,12 @@ if (idToken) {
     }
 }
 
+window.updateSpec = function (host) {
+  var newspec = ui.spec().toJSON().resolved;
+  newspec.host = host || newspec.host;
+  ui.getStore().dispatch({type:'spec_update_resolved',payload:newspec})
+}
+
 window.onload = function() {
   window["SwaggerUIBundle"] = window["swagger-ui-bundle"]
   window["SwaggerUIStandalonePreset"] = window["swagger-ui-standalone-preset"]

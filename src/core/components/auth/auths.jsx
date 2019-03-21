@@ -28,6 +28,13 @@ export default class Auths extends React.Component {
 
     let { authActions } = this.props
     authActions.authorize(this.state)
+    if (this.state.canddi_key && this.state.canddi_key.value){
+      var apiKey = this.state.canddi_key.value;
+      //If this is a valid api key, the slug we want will be before the first pipe - [0]
+      //Otherwise it will just return the whole key here - not the end of the world
+      var slug = apiKey.split("|")[0];
+      window.updateSpec(slug + '.canddi.com');
+    }
   }
 
   logoutClick =(e) => {
